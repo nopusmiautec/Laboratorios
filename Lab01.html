@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información</title>
+</head>
+<body>
+
+    <header>
+        <h1>Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información</h1>
+        <p><strong>Bienvenidos a mi primera pagina web, donde pueden conocer más sobre mi, mis gustos y preferencias</strong></p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="inicio">
+            <h2>Sobre mí</h2>
+            <article>
+                <h3>¿Quíen soy yo?</h3>
+                <p>
+                    Mi nombre es Ricardo Alejandro Andrade Robledo, soy estudiante de Ingenieria de Tecnologias Computacionales,
+                    actualmente me encuentro en 4to semestre y mis hobbies son leer, jugar videojuegos y programar. Algo que realmente
+                    me apasiona es el jugar juegos de mesa con familiares o amigos cercanos.
+                </p>
+            </article>
+        </section>
+
+        <section id="contacto">
+            <h2>Mis datos de contacto</h2>
+            <p><strong>Nombre:</strong> Ricardo Alejandro Andrade Robledo</p>
+            <p><strong>Matricula:</strong> A01706813</p>
+            <p><strong>Correo:</strong> <a href="mailto:a01706813@tec.mx">A01706813@tec.mx</a></p>
+        </section>
+
+        <section id="preguntas">
+            <h2>Preguntas a Responder</h2>
+            
+            <article>
+                <h3>1. ¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
+                <p><strong>Respuesta:</strong> Internet es la red global de computadoras interconectadas, mientras que la <em> World Wide Web (WWW)</em> 
+                es un servicio que funciona sobre Internet para acceder a páginas web mediante HTTP.</p>
+            </article>
+
+            <article>
+                <h3>2. ¿Cuáles son las partes de un URL?</h3>
+                <p><strong>Respuesta:</strong> Un URL se compone de:</p>
+                <ul>
+                    <li><strong>Protocolo</strong> (ej: <code>https://</code>)</li>
+                    <li><strong>Dominio</strong> (ej: <code>tec.mx</code>)</li>
+                    <li><strong>Ruta</strong> (ej: <code>/carpeta/Lab01.html</code>)</li>
+                    <li><strong>Parámetros</strong> (opcional, ej: <code>?id=123</code>)</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>3. Métodos HTTP</h3>
+                <details>
+                    <summary>Ver métodos</summary>
+                    <ul>
+                        <li><strong>GET:</strong> Solicita datos (ej: cargar una página).</li>
+                        <li><strong>POST:</strong> Envia datos (ej: formularios de login).</li>
+                        <li><strong>PUT/PATCH:</strong> Actualiza recursos.</li>
+                        <li><strong>DELETE:</strong> Elimina recursos.</li>
+                        <li><strong>HEAD:</strong> Solicita encabezados sin cuerpo.</li>
+                    </ul>
+                </details>
+            </article>
+
+            <article>
+                <h3>4. ¿Qué método HTTP se usa en formularios con datos sensibles?</h3>
+                <p><strong>Respuesta:</strong> <code>POST</code>, porque los datos no se muestran en la URL (a diferencia de GET).</p>
+            </article>
+
+            <article>
+                <h3>5. ¿Qué método HTTP se utiliza cuando se accede a una página a través de un URL?</h3>
+                <p><strong>Respuesta:</strong></p>
+                <p>Cuando escribes una URL en tu navegador (ej: <code>https://www.ejemplo.com</code>), el navegador envía una solicitud <strong>GET</strong> al servidor. Este método:</p>
+                <ul>
+                    <li>Solo recupera datos (no los modifica).</li>
+                    <li>Los parámetros (si existen) se ven en la URL (ej: <code>?busqueda=html</code>).</li>
+                    <li>Es cacheable y almacenable en el historial del navegador.</li>
+                </ul>
+                <p><em>Ejemplo en código:</em></p>
+                <pre><code>GET /index.html HTTP/1.1 Host: www.ejemplo.com</code></pre>
+            </article>
+
+            <article>
+                <h3>6. Códigos de estado HTTP</h3>
+                <ul>
+                    <li><strong>200:</strong> Éxito (no es un error).</li>
+                    <li><strong>404:</strong> No encontrado (error del cliente).</li>
+                    <li><strong>500:</strong> Error interno del servidor (debe corregirlo el desarrollador).</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>7. Diferencias entre HTML4 y HTML5</h3>
+                <p><strong>Elementos desaprobados:</strong> <code>&lt;center&gt;</code>, <code>&lt;font&gt;</code>,
+                <code>&lt;frame&gt;</code>.</p>
+                <p><strong>Novedades HTML5:</strong> Etiquetas semánticas (<code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>), 
+                soporte multimedia nativo (<code>&lt;video&gt;</code>).</p>
+            </article>
+
+            <article>
+                <h3>8. Componentes de una tabla HTML</h3>
+                <table style="border: 1px solid black; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid black;">Etiqueta</th>
+                            <th style="border: 1px solid black;">Propósito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid black;"><code>&lt;tr&gt;</code></td>
+                            <td style="border: 1px solid black;">Fila</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;"><code>&lt;td&gt;</code></td>
+                            <td style="border: 1px solid black;">Celda</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>9. Principales controles de formularios en HTML5</h3>
+                <p><strong>Lista con ejemplos:</strong></p>
+                <form>
+                    <fieldset>
+                        <legend>Controles comunes</legend>
+                        <label for="texto">Campo de texto:</label>
+                        <input type="text" id="texto" placeholder="Ej: Nombre"><br>
+    
+                        <label for="email">Email (HTML5):</label>
+                        <input type="email" id="email" required><br>
+    
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha"><br>
+    
+                        <label for="rango">Rango:</label>
+                        <input type="range" id="rango" min="0" max="100"><br>
+    
+                        <label for="color">Color:</label>
+                        <input type="color" id="color"><br>
+    
+                        <label for="archivo">Subir archivo:</label>
+                        <input type="file" id="archivo"><br>
+    
+                        <label for="lista">Lista desplegable:</label>
+                        <select id="lista">
+                            <option value="1">Opción 1</option>
+                            <option value="2">Opción 2</option>
+                        </select><br>
+    
+                        <button type="submit">Enviar</button>
+                    </fieldset>
+                </form>
+            </article>
+    
+
+            <article>
+                <h3>10. Soporte HTML5 del navegador utilizado</h3>
+                <p><strong>Respuesta:</strong> De acuerdo a lo mostrado de la pagina proporcionada, el soporte que tiene el navegador para la realizacion de este laboratorio, el cual es chrome, es de 523 puntos de los 555 totales</p>
+            </article>
+
+            <article>
+                <h3>11. Ciclo de vida vs. Ciclo de desarrollo de sistemas</h3>
+                
+                <details>
+                    <summary><strong>Ciclo de vida del sistema de información (SLC)</strong></summary>
+                    <p>Abarca <em>todo el tiempo de existencia</em> del sistema, incluso después de su desarrollo:</p>
+                    <ol>
+                        <li><strong>Planificación:</strong> Definición de objetivos y viabilidad.</li>
+                        <li><strong>Análisis:</strong> Requerimientos del negocio (no solo técnicos).</li>
+                        <li><strong>Diseño:</strong> Arquitectura global (hardware, red, seguridad).</li>
+                        <li><strong>Implementación:</strong> Instalación y despliegue.</li>
+                        <li><strong>Mantenimiento:</strong> Soporte y actualizaciones.</li>
+                        <li><strong>Disposición:</strong> Retiro o migración a nuevo sistema.</li>
+                    </ol>
+                </details>
+            
+                <details>
+                    <summary><strong>Ciclo de desarrollo de software (SDLC)</strong></summary>
+                    <p>Fases técnicas para <em>construir el software</em>:</p>
+                    <ol>
+                        <li><strong>Requerimientos:</strong> Especificaciones funcionales y técnicas.</li>
+                        <li><strong>Diseño:</strong> Diagramas UML, prototipos.</li>
+                        <li><strong>Codificación:</strong> Desarrollo del código.</li>
+                        <li><strong>Pruebas:</strong> Unitarias, integración, rendimiento.</li>
+                        <li><strong>Despliegue:</strong> Instalación en producción.</li>
+                        <li><strong>Mantenimiento:</strong> Corrección de bugs y mejoras.</li>
+                    </ol>
+                    <p><em>Modelos comunes:</em> Cascada, Ágil (Scrum), Espiral.</p>
+                </details>
+            
+                <p><strong>Relación:</strong> El SDLC es una <em>parte</em> del SLC (enfocada solo en el software).</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <h4>Dudas</h4>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email-contacto">Correo:</label>
+                <input type="email" id="email-contacto" name="email" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </fieldset>
+        </form>
+        <p><em>Página creada con <strong>Visual Studio Code</strong></em></p>
+        <p><a href="https://code.visualstudio.com/" target="_blank">Visita el sitio oficial de VS Code</a></p>
+    </footer>
+</body>
+</html>
