@@ -229,10 +229,101 @@
                 <h4>4. CSS minimizado</h4>
                 <p><strong>Ventajas:</strong> Reduce tamaño de archivo (mejor rendimiento), disminuye ancho de banda, y acelera el parsing del navegador.</p>
             </article>
+
+            <h3>Preguntas y Respuestas - Laboratorio 4</h3>
+
+            <article>
+                <h4>1. ¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h4>
+                <p><strong>Diferencias:</strong></p>
+                <ul>
+                    <li><strong>Tipo de lenguaje:</strong> Java es compilado y fuertemente tipado, JavaScript es interpretado y débilmente tipado.</li>
+                    <li><strong>Uso principal:</strong> Java para aplicaciones empresariales/Android, JavaScript para web (frontend/backend con Node.js).</li>
+                    <li><strong>Ejecución:</strong> Java necesita JVM, JavaScript se ejecuta en navegadores o motores como V8.</li>
+                </ul>
+                <p><strong>Semejanzas:</strong></p>
+                <ul>
+                    <li>Sintaxis similar (condicionales, bucles, operadores).</li>
+                    <li>Ambos son orientados a objetos (aunque JavaScript usa prototipos).</li>
+                    <li>Soportan funciones como ciudadanos de primera clase.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4>2. ¿Qué métodos tiene el objeto Date? (Menciona al menos 5)</h4>
+                <ul>
+                    <li><code>getDate()</code>: Devuelve el día del mes (1-31).</li>
+                    <li><code>getFullYear()</code>: Obtiene el año (4 dígitos).</li>
+                    <li><code>getMonth()</code>: Retorna el mes (0-11).</li>
+                    <li><code>getHours()</code>: Devuelve la hora (0-23).</li>
+                    <li><code>toISOString()</code>: Convierte la fecha a string en formato ISO.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4>3. ¿Qué métodos tienen los arreglos? (Menciona al menos 5)</h4>
+                <ul>
+                    <li><code>push()</code>: Añade elementos al final.</li>
+                    <li><code>pop()</code>: Elimina el último elemento.</li>
+                    <li><code>map()</code>: Crea un nuevo array aplicando una función a cada elemento.</li>
+                    <li><code>filter()</code>: Filtra elementos que cumplan una condición.</li>
+                    <li><code>join()</code>: Convierte el array a string uniendo elementos con un separador.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h4>4. ¿Cómo se declara una variable con alcance local dentro de una función?</h4>
+                <p>Usando <code>let</code> o <code>const</code> dentro del cuerpo de la función:</p>
+                <pre><code>function ejemplo() {
+                let local = "Solo visible aquí";
+                const PI = 3.1416;
+                }</code></pre>
+                <p><strong>Nota:</strong> <code>var</code> también declara variables locales, pero su alcance es la función completa (no el bloque).</p>
+            </article>
+
+            <article>
+                <h4>5. ¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h4>
+                <ul>
+                    <li><strong>Contaminación del espacio global:</strong> Puede haber colisión de nombres con otros scripts.</li>
+                    <li><strong>Dificultad para depurar:</strong> Es más difícil rastrear cambios inesperados.</li>
+                    <li><strong>Acoplamiento innecesario:</strong> Las funciones dependen de estado externo, reduciendo reusabilidad.</li>
+                    <li><strong>Seguridad:</strong> Cualquier script puede modificar variables globales.</li>
+                </ul>
+                <p><strong>Alternativa:</strong> Usar módulos o closures para encapsular variables.</p>
+            </article>
+
         </section>
 
         </section>
     </main>
+
+    <script src="Lab04-problema1.js"></script>
+    <script src="Lab04-problema2.js"></script>
+    <script src="Lab04-problema3.js"></script>
+    <script src="Lab04-problema4.js"></script>
+    <h2>Invertir un Número</h2>
+    <label for="numero">Ingrese un número:</label>
+    <input type="number" id="numero">
+    <button id="btnInvertir">Invertir</button>
+    <p id="resultado"></p>
+    <script src="Lab04-problema5.js"></script>
+    <article>
+        <h2>Sistema de Progresión en Videojuegos (Script 6)</h4>
+        <p><strong>Problemática:</strong> En muchos videojuegos, se necesita un sistema para gestionar el progreso del jugador (puntuación y nivel) de manera organizada y escalable.</p>
+        
+        <p><strong>Solución implementada:</strong></p>
+        <ul>
+            <li>Clase <code>Jugador</code> con propiedades: <code>nombre</code>, <code>puntuacion</code>, y <code>nivel</code>.</li>
+            <li>Método <code>sumarPuntos()</code>: Aumenta la puntuación y verifica si el jugador sube de nivel (cada 100 puntos × nivel actual).</li>
+            <li>Método <code>subirNivel()</code>: Incrementa el nivel automáticamente.</li>
+        </ul>
+    
+        <p><strong>Ejemplo de uso:</strong></p>
+        <pre><code>const jugador = new Jugador("Ana");
+        jugador.sumarPuntos(150); // Puntuación: 150, Nivel: 2</code></pre>
+    
+        <p><strong>Contexto real:</strong> Sistemas similares se usan en juegos RPG (como Pokémon o Skyrim) para recompensar al jugador.</p>
+    </article>
+    <script src="Lab04-problema6.js"></script>
 
     <footer>
         <h5>Dudas</h5>
