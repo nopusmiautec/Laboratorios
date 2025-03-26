@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información</title>
+    <link rel="stylesheet" href="Lab03.css">
 </head>
 <body>
 
@@ -42,15 +43,17 @@
 
         <section id="preguntas">
             <h2>Preguntas a Responder</h2>
+
+            <h3>Preguntas y Respuestas - Laboratorio 1</h3>
             
             <article>
-                <h3>1. ¿Cuál es la diferencia entre Internet y la World Wide Web?</h3>
+                <h4>1. ¿Cuál es la diferencia entre Internet y la World Wide Web?</h4>
                 <p><strong>Respuesta:</strong> Internet es la red global de computadoras interconectadas, mientras que la <em> World Wide Web (WWW)</em> 
                 es un servicio que funciona sobre Internet para acceder a páginas web mediante HTTP.</p>
             </article>
 
             <article>
-                <h3>2. ¿Cuáles son las partes de un URL?</h3>
+                <h4>2. ¿Cuáles son las partes de un URL?</h4>
                 <p><strong>Respuesta:</strong> Un URL se compone de:</p>
                 <ul>
                     <li><strong>Protocolo</strong> (ej: <code>https://</code>)</li>
@@ -61,7 +64,7 @@
             </article>
 
             <article>
-                <h3>3. Métodos HTTP</h3>
+                <h4>3. Métodos HTTP</h4>
                 <details>
                     <summary>Ver métodos</summary>
                     <ul>
@@ -75,12 +78,12 @@
             </article>
 
             <article>
-                <h3>4. ¿Qué método HTTP se usa en formularios con datos sensibles?</h3>
+                <h4>4. ¿Qué método HTTP se usa en formularios con datos sensibles?</h4>
                 <p><strong>Respuesta:</strong> <code>POST</code>, porque los datos no se muestran en la URL (a diferencia de GET).</p>
             </article>
 
             <article>
-                <h3>5. ¿Qué método HTTP se utiliza cuando se accede a una página a través de un URL?</h3>
+                <h4>5. ¿Qué método HTTP se utiliza cuando se accede a una página a través de un URL?</h4>
                 <p><strong>Respuesta:</strong></p>
                 <p>Cuando escribes una URL en tu navegador (ej: <code>https://www.ejemplo.com</code>), el navegador envía una solicitud <strong>GET</strong> al servidor. Este método:</p>
                 <ul>
@@ -93,7 +96,7 @@
             </article>
 
             <article>
-                <h3>6. Códigos de estado HTTP</h3>
+                <h4>6. Códigos de estado HTTP</h4>
                 <ul>
                     <li><strong>200:</strong> Éxito (no es un error).</li>
                     <li><strong>404:</strong> No encontrado (error del cliente).</li>
@@ -102,7 +105,7 @@
             </article>
 
             <article>
-                <h3>7. Diferencias entre HTML4 y HTML5</h3>
+                <h4>7. Diferencias entre HTML4 y HTML5</h4>
                 <p><strong>Elementos desaprobados:</strong> <code>&lt;center&gt;</code>, <code>&lt;font&gt;</code>,
                 <code>&lt;frame&gt;</code>.</p>
                 <p><strong>Novedades HTML5:</strong> Etiquetas semánticas (<code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>), 
@@ -110,29 +113,29 @@
             </article>
 
             <article>
-                <h3>8. Componentes de una tabla HTML</h3>
-                <table style="border: 1px solid black; border-collapse: collapse;">
+                <h4>8. Componentes de una tabla HTML</h4>
+                <table>
                     <thead>
                         <tr>
-                            <th style="border: 1px solid black;">Etiqueta</th>
-                            <th style="border: 1px solid black;">Propósito</th>
+                            <th>Etiqueta</th>
+                            <th>Propósito</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="border: 1px solid black;"><code>&lt;tr&gt;</code></td>
-                            <td style="border: 1px solid black;">Fila</td>
+                            <td><code>&lt;tr&gt;</code></td>
+                            <td>Fila</td>
                         </tr>
                         <tr>
-                            <td style="border: 1px solid black;"><code>&lt;td&gt;</code></td>
-                            <td style="border: 1px solid black;">Celda</td>
+                            <td><code>&lt;td&gt;</code></td>
+                            <td>Celda</td>
                         </tr>
                     </tbody>
                 </table>
             </article>
 
             <article>
-                <h3>9. Principales controles de formularios en HTML5</h3>
+                <h4>9. Principales controles de formularios en HTML5</h4>
                 <p><strong>Lista con ejemplos:</strong></p>
                 <form>
                     <fieldset>
@@ -168,12 +171,12 @@
     
 
             <article>
-                <h3>10. Soporte HTML5 del navegador utilizado</h3>
+                <h4>10. Soporte HTML5 del navegador utilizado</h4>
                 <p><strong>Respuesta:</strong> De acuerdo a lo mostrado de la pagina proporcionada, el soporte que tiene el navegador para la realizacion de este laboratorio, el cual es chrome, es de 523 puntos de los 555 totales</p>
             </article>
 
             <article>
-                <h3>11. Ciclo de vida vs. Ciclo de desarrollo de sistemas</h3>
+                <h4>11. Ciclo de vida vs. Ciclo de desarrollo de sistemas</h4>
                 
                 <details>
                     <summary><strong>Ciclo de vida del sistema de información (SLC)</strong></summary>
@@ -204,11 +207,35 @@
             
                 <p><strong>Relación:</strong> El SDLC es una <em>parte</em> del SLC (enfocada solo en el software).</p>
             </article>
+
+            <h3>Preguntas y Respuestas - Laboratorio 3</h3>
+
+            <article>
+                <h4>1. Uso de !important en CSS</h4>
+                <p><strong>Recomendación:</strong> Evitar su uso excepto en casos extremos donde sea necesario anular estilos de terceros. Su abuso dificulta el mantenimiento del código.</p>
+            </article>
+
+            <article>
+                <h4>2. Imágenes de fondo</h4>
+                <p><strong>Consideraciones:</strong> Deben optimizarse para rendimiento, tener contraste adecuado con el texto, y siempre incluir un color de fallback.</p>
+            </article>
+
+            <article>
+                <h4>3. Unidades de medida (%, px, pt)</h4>
+                <p><strong>Recomendación:</strong> Usar % para diseños fluidos, px para medidas precisas, y evitar pt (está pensado para medios impresos). Preferir rem para tipografía.</p>
+            </article>
+
+            <article>
+                <h4>4. CSS minimizado</h4>
+                <p><strong>Ventajas:</strong> Reduce tamaño de archivo (mejor rendimiento), disminuye ancho de banda, y acelera el parsing del navegador.</p>
+            </article>
+        </section>
+
         </section>
     </main>
 
     <footer>
-        <h4>Dudas</h4>
+        <h5>Dudas</h5>
         <form action="#" method="post">
             <fieldset>
                 <legend>Datos Personales</legend>

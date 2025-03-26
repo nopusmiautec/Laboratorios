@@ -1,0 +1,23 @@
+header,section{margin-bottom:20px;border-radius:8px;padding:20px}
+header,nav ul,section{border-radius:8px}
+body,form,header,section{padding:20px}
+button,th{background-color:#34db34;color:#fff}
+button,header,nav a,th{color:#fff}
+details,pre{padding:10px}
+code,pre{background-color:#f5f5f5}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:#333;max-width:1200px;margin:0 auto;background-color:#f9f9f9}
+header{background-color:#2c3e50;text-align:center}
+nav ul{list-style-type:none;padding:15px;display:flex;justify-content:center;gap:20px;background-color:#34495e}
+nav a{text-decoration:none;font-weight:700}
+section{background-color:#fff;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+fieldset,td,th{border:1px solid #ddd}
+article{margin-bottom:25px;padding-bottom:15px;border-bottom:1px solid #eee}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+td,th{padding:12px;text-align:left}
+form{background-color:#f8f8f8;border-radius:8px}
+fieldset{padding:15px;border-radius:5px}
+input,select,textarea{width:100%;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:4px;box-sizing:border-box}
+button{padding:12px 20px;border:none;border-radius:4px;cursor:pointer;font-size:16px}
+button:hover{background-color:#2980b9}details{margin:10px 0;background-color:#f0f8ff;border-left:4px solid #3498db}
+pre{border-radius:4px;overflow-x:auto}code{font-family:Consolas,Monaco,'Andale Mono',monospace;padding:2px 4px;border-radius:3px}
+#preguntas>h3{color:#2c3e50;border-bottom:2px solid #3498db;padding-bottom:10px;margin-top:30px}
