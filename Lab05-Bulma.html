@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do App con Bulma</title>
+        <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            body {padding: 20px; }
+            .completed { text-decoration: line-through; opacity: 0.7; }
+        </style>
+    </head>
+    <body>
+        <section class="hero is-primary mb-6">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">To-Do App - Hecho por: Ricardo Alejandro Andrade Robledo</h1>
+                    <p class="subtitle">Usando Bulma CSS</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="box">
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input id="taskInput" class="input" type="text" placeholder="Escribe una tarea...">
+                    </div>
+                    <div class="control">
+                        <button id="addBtn" class="button is-info">
+                            <span class="icon"><i class="fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h2 class="subtitle">Mis Tareas</h2>
+                <ul id="taskList" class="menu-list">
+
+                </ul>
+                <div class="level">
+                    <div class="level-left">
+                        <span id="counter" class="tag is-info">0 tareas</span>
+                    </div>
+                    <div class="level-right">
+                        <button id="clearAllBtn" class="button is-small is-danger">Limpiar todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main>
+            <section class="section">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="title">Describe Material Design</h2>
+                            <div class="content">
+                                <p><strong>Material Design</strong> es un sistema de diseño creado por Google en 2024. Combina principios de diseño clásico con innovación tecnológica, enfocado en:</p>
+                                <ul>
+                                    <li><strong>Jerarquía visual:</strong> Uso de sombras, profundidad (z-index) y animaciones para guiar al usuario.</li>
+                                    <li><strong>Grids adaptables:</strong> Layouts flexibles para cualquier dispositivo.</li>
+                                    <li><strong>Componentes reutilizables:</strong> Botones, cards y menus estandarizados.</li>
+                                    <li><strong>Motion design:</strong> Transiciones significativas que comunican acciones.</li>
+                                    <li><strong>Paletas limitadas:</strong> Colores vibrantes pero armoniosos (basados e papel y tinta).</li>
+                                </ul>
+                                <p><em>Ejemplo:</em> Apss como Gmail y Goggle Drive usan Material Design.</p>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <p class="card-footer-iterm">
+                                <span>Framework relacionado: <a href="https://materializecss.com/" target="_blank">Materializa CSS</a></span>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const taskInput = document.getElementById('taskInput');
+                const addBtn = document.getElementById('addBtn');
+                const taskList = document.getElementById('taskList');
+                const counter = document.getElementById('counter');
+                const clearAllBtn = document.getElementById('clearAllBtn');
+                let tasks = [];
+
+                const renderTasks = () => {
+                    taskList.innerHTML = '';
+                    tasks.forEach((task, index) => {
+                        const taskItem = document.createElement('li');
+                        taskItem.className = 'task-item';
+                        taskItem.innerHTML = `
+                        <div class="box is-flex is-justify-content-space-between is-align-items-center">
+                            <span class="${task.completed ? 'completed' : ''}">${task.text}</span>
+                            <div>
+                                <button class="button is-small ${task.completed ? 'is-warning' : 'is-success'}" onclick="toggleTask(${index})">
+                                    <span class="icon">
+                                        <i class="fas ${task.completed ? 'fa-undo' : 'fa-check'}"></i>
+                                    </span>
+                                </button>
+                                <button class="button is-small is-danger ml-2" onclick="deleteTask(${index})">
+                                    <span class="icon"><i class="fas fa-trash"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                        `;
+                        taskList.appendChild(taskItem);
+                    });
+                    counter.textContent = `${tasks.length} tarea(s)`;
+                };
+                addBtn.addEventListener('click', () => {
+                    if (taskInput.value.trim() === '') return;
+                    tasks.push({ text: taskInput.value, completed: false });
+                    taskInput.value = '';
+                    renderTasks();
+                });
+                window.toggleTask = (index) => {
+                    tasks[index].completed = !tasks[index].completed;
+                    renderTasks();
+                };
+                window.deleteTask = (index) => {
+                    tasks.splice(index, 1);
+                    renderTasks();
+                };
+                clearAllBtn.addEventListener('click', () => {
+                    tasks = [];
+                    renderTasks();
+                });
+            });
+        </script>
+    </body>
+</html>
