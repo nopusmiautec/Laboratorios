@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/about">Acerca de</a>
+        <a href="/services">Servicios</a>
+        <a href="/contact">Contacto</a>
+        <a href="/formulario">Formulario</a>
+    </nav>
+    <div class="container">
+        <h1>Bienvenido al Laboratorio 11</h1>
+        
+        <section class="lab-answer">
+            <h2>Descripción del archivo package.json</h2>
+            <p>El archivo <code>package.json</code> es fundamental en cualquier proyecto Node.js y contiene:</p>
+            
+            <h3>1. Metadatos del proyecto</h3>
+            <ul>
+                <li><strong>name</strong>: Nombre del proyecto</li>
+                <li><strong>version</strong>: Versión actual del proyecto</li>
+                <li><strong>description</strong>: Breve descripción del proyecto</li>
+                <li><strong>author</strong>: Autor del proyecto</li>
+                <li><strong>license</strong>: Tipo de licencia</li>
+            </ul>
+            
+            <h3>2. Configuración principal</h3>
+            <ul>
+                <li><strong>main</strong>: Punto de entrada de la aplicación (app.js)</li>
+            </ul>
+            
+            <h3>3. Scripts</h3>
+            <ul>
+                <li><strong>start</strong>: Inicia la aplicación con nodemon para desarrollo</li>
+                <li><strong>test</strong>: Para ejecutar pruebas (aunque no tenemos configuradas)</li>
+            </ul>
+            
+            <h3>4. Dependencias</h3>
+            <ul>
+                <li><strong>dependencies</strong>: Paquetes necesarios para producción (express, body-parser)</li>
+                <li><strong>devDependencies</strong>: Paquetes solo para desarrollo (nodemon)</li>
+            </ul>
+            
+            <h3>Importancia</h3>
+            <ul>
+                <li>Permite gestionar fácilmente las dependencias del proyecto</li>
+                <li>Facilita la replicación del entorno de desarrollo</li>
+                <li>Contiene scripts útiles para automatizar tareas</li>
+                <li>Sirve como documentación del proyecto</li>
+            </ul>
+            
+            <div class="code-block">
+                <h4>Ejemplo de package.json:</h4>
+                <pre>{
+  "name": "laboratorios",
+  "version": "1.0.0",
+  "description": "Aplicación web para laboratorios de Construcción de Software",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}</pre>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
