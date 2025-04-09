@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/about">Acerca de</a>
+        <a href="/services">Servicios</a>
+        <a href="/contact">Contacto</a>
+        <a href="/formulario">Formulario</a>
+    </nav>
+    <h1>Formulario de contacto</h1>
+    <form action="/formulario/enviar" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+        
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
