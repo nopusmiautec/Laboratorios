@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+    <%- include('includes/nav') %>
+    
+    <main class="container">
+        <h1><%= pageTitle %></h1>
+        
+        <% if (datos.length > 0) { %>
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Mensaje</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% datos.forEach(dato => { %>
+                            <tr>
+                                <td><%= dato.nombre %></td>
+                                <td><%= dato.email %></td>
+                                <td><%= dato.mensaje %></td>
+                                <td><%= dato.fecha %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        <% } else { %>
+            <div class="no-data">
+                <p>No se han recibido datos aún.</p>
+                <a href="/formulario" class="btn">Ir al formulario</a>
+            </div>
+        <% } %>
+    </main>
+    
+    <%- include('includes/footer') %>
+</body>
+</html>
