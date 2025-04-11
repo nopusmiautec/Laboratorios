@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+    <%- include('includes/nav') %>
+    
+    <main class="container">
+        <h1><%= pageTitle %></h1>
+        
+        <div class="confirmation-message">
+            <h2>¡Gracias por tu mensaje, <%= dato.nombre %>!</h2>
+            <p>Hemos recibido tu información correctamente.</p>
+            
+            <div class="summary">
+                <h3>Resumen de tu envío:</h3>
+                <p><strong>Email:</strong> <%= dato.email %></p>
+                <p><strong>Mensaje:</strong> <%= dato.mensaje %></p>
+                <p><strong>Fecha:</strong> <%= dato.fecha %></p>
+            </div>
+            
+            <div class="actions">
+                <a href="/formulario" class="btn">Enviar otro mensaje</a>
+                <a href="/formulario/datos" class="btn">Ver todos los mensajes</a>
+                <a href="/" class="btn">Volver al inicio</a>
+            </div>
+        </div>
+    </main>
+    
+    <%- include('includes/footer') %>
+</body>
+</html>
