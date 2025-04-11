@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+    <%- include('includes/nav') %>
+    
+    <main class="container">
+        <h1><%= pageTitle %></h1>
+        
+        <section class="lab-answer">
+            <h2>Motores de Plantillas (Templating Engines) para Node.js</h2>
+            
+            <p>Además de EJS (Embedded JavaScript) que estamos usando en este laboratorio, existen varios motores de plantillas populares para Node.js:</p>
+            
+            <div class="template-engine">
+                <h3>1. Pug (antes Jade)</h3>
+                <ul>
+                    <li><strong>Sintaxis:</strong> Basada en indentación (sin tags HTML)</li>
+                    <li><strong>Ventaja:</strong> Código muy conciso y legible</li>
+                    <li><strong>Ejemplo:</strong> <code>h1= title</code> en lugar de <code>&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;</code></li>
+                </ul>
+            </div>
+            
+            <div class="template-engine">
+                <h3>2. Handlebars</h3>
+                <ul>
+                    <li><strong>Sintaxis:</strong> Similar a Mustache pero con más funcionalidades</li>
+                    <li><strong>Ventaja:</strong> Lógica mínima en las vistas (mejor separación)</li>
+                    <li><strong>Característica:</strong> Soporta helpers personalizados</li>
+                </ul>
+            </div>
+            
+            <div class="template-engine">
+                <h3>3. Nunjucks</h3>
+                <ul>
+                    <li><strong>Sintaxis:</strong> Inspirado en Jinja2 (Python)</li>
+                    <li><strong>Ventaja:</strong> Rico en características y muy flexible</li>
+                    <li><strong>Útil para:</strong> Proyectos complejos que necesitan herencia de plantillas</li>
+                </ul>
+            </div>
+            
+            <div class="template-engine">
+                <h3>4. Mustache</h3>
+                <ul>
+                    <li><strong>Sintaxis:</strong> Muy simple y minimalista</li>
+                    <li><strong>Ventaja:</strong> Multiplataforma (no solo para Node.js)</li>
+                    <li><strong>Característica:</strong> Lógica-less (sin condicionales complejos)</li>
+                </ul>
+            </div>
+            
+            <div class="template-engine">
+                <h3>5. React como motor de plantillas</h3>
+                <ul>
+                    <li><strong>Enfoque:</strong> Usando ReactDOMServer.renderToString()</li>
+                    <li><strong>Ventaja:</strong> Ideal para aplicaciones isomórficas (SSR)</li>
+                    <li><strong>Útil cuando:</strong> Ya estás usando React en el frontend</li>
+                </ul>
+            </div>
+            
+            <div class="comparison">
+                <h3>Comparación rápida:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Motor</th>
+                            <th>Dificultad</th>
+                            <th>Flexibilidad</th>
+                            <th>Recomendado para</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EJS</td>
+                            <td>Fácil</td>
+                            <td>Media</td>
+                            <td>Proyectos pequeños/medianos</td>
+                        </tr>
+                        <tr>
+                            <td>Pug</td>
+                            <td>Media</td>
+                            <td>Alta</td>
+                            <td>Equipos que valoran sintaxis concisa</td>
+                        </tr>
+                        <tr>
+                            <td>Handlebars</td>
+                            <td>Fácil</td>
+                            <td>Media</td>
+                            <td>Separación estricta de lógica y vista</td>
+                        </tr>
+                        <tr>
+                            <td>Nunjucks</td>
+                            <td>Media</td>
+                            <td>Muy Alta</td>
+                            <td>Proyectos complejos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="selection-tips">
+                <h3>¿Cómo elegir?</h3>
+                <ul>
+                    <li><strong>Para principiantes:</strong> EJS o Handlebars</li>
+                    <li><strong>Para equipos experimentados:</strong> Pug o Nunjucks</li>
+                    <li><strong>Para aplicaciones React:</strong> React como motor</li>
+                    <li><strong>Para máxima simplicidad:</strong> Mustache</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <%- include('includes/footer') %>
+</body>
+</html>
