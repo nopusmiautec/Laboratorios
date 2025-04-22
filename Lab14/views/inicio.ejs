@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora con Sesiones y Cookies</h1>
+        
+        <p>Esta es tu visita número: <%= visitas %></p>
+        
+        <div class="preguntas">
+            <h2>Preguntas del Laboratorio</h2>
+            <h3><%= preguntas.pregunta1 %></h3>
+            <p><%= preguntas.respuesta1 %></p>
+            <h3><%= preguntas.pregunta2 %></h3>
+            <p><%= preguntas.respuesta2 %></p>
+        </div>
+        
+        <div class="calculadora">
+            <h2>Calculadora</h2>
+            
+            <% if (resultado) { %>
+                <div class="resultado">
+                    <strong>Resultado:</strong> <%= resultado %>
+                </div>
+            <% } %>
+            
+            <form action="/calcular" method="POST">
+                <div class="form-group">
+                    <label for="num1">Número 1:</label>
+                    <input type="number" id="num1" name="num1" step="any" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="operacion">Operación:</label>
+                    <select id="operacion" name="operacion" required>
+                        <option value="suma">Suma (+)</option>
+                        <option value="resta">Resta (-)</option>
+                        <option value="multiplicacion">Multiplicación (*)</option>
+                        <option value="division">División (/)</option>
+                        <option value="potencia">Potencia (^)</option>
+                        <option value="raiz">Raíz cuadrada (√)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="num2-group">
+                    <label for="num2">Número 2:</label>
+                    <input type="number" id="num2" name="num2" step="any">
+                </div>
+                
+                <button type="submit">Calcular</button>
+                <a href="/limpiar" class="button">Limpiar</a>
+            </form>
+        </div>
+        
+        <% if (historial && historial.length > 0) { %>
+            <div class="historial">
+                <h3>Historial (últimas 5 operaciones)</h3>
+                <ul>
+                    <% historial.forEach(op => { %>
+                        <li><%= op %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+    </div>
+
+    <script>
+        // Mostrar/ocultar campo num2 según operación
+        document.getElementById('operacion').addEventListener('change', function() {
+            const num2Group = document.getElementById('num2-group');
+            if (this.value === 'raiz') {
+                num2Group.style.display = 'none';
+            } else {
+                num2Group.style.display = 'block';
+            }
+        });
+        
+        // Inicializar visibilidad al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const operacion = document.getElementById('operacion').value;
+            const num2Group = document.getElementById('num2-group');
+            if (operacion === 'raiz') {
+                num2Group.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
