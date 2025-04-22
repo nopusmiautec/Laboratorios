@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+    <%- include('includes/nav') %>
+    
+    <main class="container">
+        <h1><%= pageTitle %></h1>
+        
+        <section class="lab-questions">
+            <h2>Preguntas del Laboratorio 13 - MVC</h2>
+            
+            <div class="question">
+                <h3>1. ¿Qué es el patrón MVC?</h3>
+                <p>MVC (Modelo-Vista-Controlador) es un patrón de diseño arquitectónico que separa una aplicación en tres componentes principales:</p>
+                <ul>
+                    <li><strong>Modelo:</strong> Maneja la lógica de datos y reglas de negocio (ej: models/Product.js)</li>
+                    <li><strong>Vista:</strong> Se encarga de la presentación (ej: archivos .ejs en views/)</li>
+                    <li><strong>Controlador:</strong> Gestiona la interacción entre Modelo y Vista (ej: archivos en controllers/)</li>
+                </ul>
+            </div>
+            
+            <div class="question">
+                <h3>2. ¿Cuáles son las ventajas de usar MVC?</h3>
+                <ul>
+                    <li>Separación clara de responsabilidades</li>
+                    <li>Código más organizado y mantenible</li>
+                    <li>Facilita el trabajo en equipo</li>
+                    <li>Reutilización de componentes</li>
+                    <li>Mayor escalabilidad de la aplicación</li>
+                </ul>
+            </div>
+            
+            <div class="question">
+                <h3>3. ¿Cómo se implementa MVC en Express?</h3>
+                <p>En Express implementamos MVC mediante:</p>
+                <ol>
+                    <li>Creación de modelos en la carpeta <code>models/</code></li>
+                    <li>Definición de controladores en <code>controllers/</code></li>
+                    <li>Organización de vistas en <code>views/</code></li>
+                    <li>Configuración de rutas en <code>routes/</code> que conectan URLs con controladores</li>
+                </ol>
+            </div>
+            
+            <div class="question">
+                <h3>4. ¿Qué función cumplen los partials en EJS?</h3>
+                <p>Los partials permiten:</p>
+                <ul>
+                    <li>Reutilizar fragmentos de código HTML en múltiples vistas</li>
+                    <li>Mantener consistencia en la interfaz</li>
+                    <li>Facilitar mantenimiento (cambios en un solo lugar)</li>
+                    <li>Ejemplos comunes: headers, footers, menús de navegación</li>
+                </ul>
+                <p>En este proyecto usamos partials para <code>head</code>, <code>nav</code> y <code>footer</code>.</p>
+            </div>
+        </section>
+        
+        <section class="app-features">
+            <h2>Funcionalidades Implementadas</h2>
+            <ul>
+                <li>Sistema de rutas con Express</li>
+                <li>Vistas dinámicas con EJS</li>
+                <li>Modelo de productos con datos de ejemplo</li>
+                <li>Página de error 404 personalizada</li>
+                <li>Diseño responsive con CSS moderno</li>
+            </ul>
+        </section>
+    </main>
+    
+    <%- include('includes/footer') %>
+</body>
+</html>
