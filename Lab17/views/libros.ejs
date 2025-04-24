@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catálogo de Libros</title>
+    <!-- Agrega el CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Estilos adicionales específicos para esta vista */
+        .book-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .book-table th, .book-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .book-table th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .book-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .action-links {
+            margin-bottom: 20px;
+        }
+        
+        .action-links a {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .action-links a:hover {
+            background-color: #2980b9;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .faq-answer {
+            color: #555;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">Inicio</a>
+        <a href="/add-libro">Agregar Libro</a>
+    </nav>
+
+    <div class="container">
+        <h1>Catálogo de Libros</h1>
+        
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Género</th>
+                    <th>Año</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (libros && libros.length > 0) { %>
+                    <% libros.forEach(libro => { %>
+                        <tr>
+                            <td><%= libro.titulo %></td>
+                            <td><%= libro.autor || 'Desconocido' %></td>
+                            <td><%= libro.genero %></td>
+                            <td><%= libro.anio_publicacion %></td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" style="text-align: center;">No hay libros registrados</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <div class="faq-section">
+            <h2>Preguntas Técnicas</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</div>
+                <div class="faq-answer">
+                    Escribir el código SQL únicamente en la capa del modelo ofrece varias ventajas:<br>
+                    1. <strong>Separación de preocupaciones</strong>: Mantiene la lógica de base de datos separada de la lógica de negocio y presentación.<br>
+                    2. <strong>Mantenibilidad</strong>: Facilita los cambios en la estructura de la base de datos sin afectar otras capas.<br>
+                    3. <strong>Seguridad</strong>: Centraliza el manejo de consultas y previene SQL injection.<br>
+                    4. <strong>Reusabilidad</strong>: Las consultas pueden ser reutilizadas en diferentes partes de la aplicación.<br>
+                    5. <strong>Pruebas más fáciles</strong>: Permite probar las consultas de forma aislada.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">¿Qué es SQL injection y cómo se puede prevenir?</div>
+                <div class="faq-answer">
+                    <strong>SQL injection</strong> es una vulnerabilidad de seguridad que permite a un atacante inyectar código SQL malicioso en las consultas de una aplicación.<br><br>
+                    
+                    <strong>Formas de prevenirlo:</strong><br>
+                    1. Usar <strong>consultas parametrizadas</strong> o prepared statements.<br>
+                    2. Implementar <strong>ORM</strong> (Mapeo Objeto-Relacional) que generan SQL seguro automáticamente.<br>
+                    3. Validar y sanitizar <strong>todos los inputs</strong> del usuario.<br>
+                    4. Usar <strong>principio de mínimo privilegio</strong> en la cuenta de la base de datos.<br>
+                    5. Escapar caracteres especiales cuando sea necesario.<br>
+                    6. Implementar <strong>capas de validación</strong> tanto en frontend como en backend.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
