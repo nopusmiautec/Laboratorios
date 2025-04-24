@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Libro</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Estilos adicionales específicos para el formulario */
+        .form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+        
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/">Inicio</a>
+        <a href="/add-libro">Agregar Libro</a>
+    </nav>
+
+    <div class="container">
+        <h1>Agregar Nuevo Libro</h1>
+        
+        <div class="form-container">
+            <form action="/add-libro" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="titulo" placeholder="Título" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Autor:</label>
+                    <select class="form-control" name="autor_existente" id="autor-existente">
+                        <option value="">Selecciona un autor existente</option>
+                        <% if (autores && autores.length > 0) { %>
+                            <% autores.forEach(autor => { %>
+                                <option value="<%= autor.id %>"><%= autor.nombre %></option>
+                            <% }) %>
+                        <% } else { %>
+                            <option value="" disabled>No hay autores registrados</option>
+                        <% } %>
+                    </select>
+                    <span style="display: block; text-align: center; margin: 10px 0;">o</span>
+                    <input type="text" class="form-control" name="nuevo_autor" placeholder="Escribe un nuevo autor">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" name="genero" placeholder="Género">
+                </div>
+                
+                <div class="form-group">
+                    <input type="number" class="form-control" name="anio" placeholder="Año de publicación">
+                </div>
+                
+                <button type="submit" class="btn">Guardar Libro</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
