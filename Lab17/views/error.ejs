@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <style>
+        pre { background: #f0f0f0; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Error</h1>
+    <h2><%= message %></h2>
+    <h3>Detalles:</h3>
+    <pre><%= error.message %></pre>
+    <h3>Stack:</h3>
+    <pre><%= error.stack %></pre>
+    <h3>Datos crudos:</h3>
+    <pre><%= JSON.stringify(error.raw, null, 2) %></pre>
+</body>
+</html>
