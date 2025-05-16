@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación MVC con AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container my-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4"><i class="fas fa-project-diagram me-2"></i>MVC con AJAX</h1>
+            <p class="lead">Arquitectura Modelo-Vista-Controlador con comunicación AJAX</p>
+        </header>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="card-title mb-0">Buscador de Usuarios</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Buscar usuarios...">
+                            <button class="btn btn-primary" id="searchBtn">
+                                <i class="fas fa-search"></i> Buscar
+                            </button>
+                        </div>
+                        <div id="loadingSpinner" class="text-center my-3 d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                            <p class="mt-2">Cargando datos...</p>
+                        </div>
+                        <div id="resultsContainer" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="card-title mb-0">Formulario de Contacto</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="message" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-paper-plane me-1"></i> Enviar
+                            </button>
+                        </form>
+                        <div id="formResponse" class="mt-3 alert d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="card-title mb-0"><i class="fas fa-question-circle me-2"></i>Preguntas Frecuentes sobre AJAX</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion" id="ajaxFAQ">
+                            <!-- Pregunta 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        ¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications)?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#ajaxFAQ">
+                                    <div class="accordion-body">
+                                        <strong>AJAX es fundamental para las RIA's</strong> porque permite:
+                                        <ul>
+                                            <li>Actualizaciones asíncronas de contenido sin recargar la página completa</li>
+                                            <li>Interacciones más fluidas y similares a aplicaciones de escritorio</li>
+                                            <li>Reducción del ancho de banda al transferir solo datos necesarios</li>
+                                            <li>Mejor experiencia de usuario con tiempos de respuesta más rápidos</li>
+                                            <li>Integración con APIs y servicios web modernos</li>
+                                        </ul>
+                                        Las RIA's utilizan AJAX para combinar la usabilidad de aplicaciones tradicionales con la accesibilidad de las aplicaciones web.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Pregunta 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        ¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#ajaxFAQ">
+                                    <div class="accordion-body">
+                                        <strong>Implicaciones de seguridad de AJAX:</strong>
+                                        <ul>
+                                            <li>Mayor superficie de ataque debido a más puntos de conexión (endpoints)</li>
+                                            <li>Riesgo de Cross-Site Scripting (XSS) si no se sanitizan los datos</li>
+                                            <li>Posibilidad de Cross-Site Request Forgery (CSRF)</li>
+                                            <li>Exposición de estructura de APIs y lógica de negocio</li>
+                                        </ul>
+                                        
+                                        <strong>Validaciones de seguridad:</strong>
+                                        <div class="alert alert-warning mt-3">
+                                            <i class="fas fa-exclamation-triangle me-2"></i>
+                                            <strong>Las validaciones deben hacerse tanto en el cliente como en el servidor:</strong>
+                                        </div>
+                                        <ul>
+                                            <li><strong>Cliente:</strong> Para mejor experiencia de usuario (validación rápida, feedback inmediato)</li>
+                                            <li><strong>Servidor:</strong> Para seguridad real (el cliente puede ser bypassed)</li>
+                                        </ul>
+                                        <p>Nunca confíes solo en las validaciones del lado del cliente. Siempre valida y sanitiza los datos en el servidor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Pregunta 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        ¿Qué es JSON?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#ajaxFAQ">
+                                    <div class="accordion-body">
+                                        <strong>JSON (JavaScript Object Notation)</strong> es un formato ligero de intercambio de datos que:
+                                        <ul>
+                                            <li>Es fácil de leer y escribir para humanos</li>
+                                            <li>Es fácil de parsear y generar para máquinas</li>
+                                            <li>Se basa en un subconjunto del lenguaje JavaScript</li>
+                                            <li>Es completamente independiente del lenguaje pero usa convenciones familiares</li>
+                                        </ul>
+                                        
+                                        <h5 class="mt-3">Estructura básica:</h5>
+                                        <pre class="bg-light p-3 rounded"><code>{
+            "nombre": "Juan Pérez",
+            "edad": 30,
+            "activo": true,
+            "hobbies": ["programar", "leer", "correr"],
+            "direccion": {
+                "calle": "Av. Principal",
+                "ciudad": "Ciudad de México"
+            }
+        }</code></pre>
+                                        
+                                        <div class="alert alert-info mt-3">
+                                            <i class="fas fa-info-circle me-2"></i>
+                                            JSON es el formato preferido para intercambiar datos en aplicaciones AJAX por su simplicidad y compatibilidad con JavaScript.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
